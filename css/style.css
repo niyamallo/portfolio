@@ -268,25 +268,60 @@
   position: relative;
 }
 
-.portfolio-btn {
+.portfolio-overlay {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  background: rgba(98, 68, 197, 0.9);
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding: 30px;
-  padding-bottom: 100px !important;
-  opacity: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* 필요에 따라 배경 색 및 불투명도를 조정하세요. */
+  overflow: hidden; /* 추가 */
+  transition: background-color 0.5s;
+}
+
+.portfolio-text {
+  order: 1; /* 상단에 위치시킵니다. */
+  align-self: flex-start; /* 좌측 상단에 정렬 */
+  padding: 20px; /* 텍스트 주위에 패딩 추가 */
+  opacity: 0; /* 기본적으로 투명하게 설정 */
+  transition: 0.5s;
+  color: var(--light);
+  font-size: 12.5px;
+}
+
+.portfolio-text-detail {
+  line-height: 1.5;
+}
+
+.portfolio-text h5 {
+  color: var(--light);
+}
+
+.portfolio-btn {
+  position: absolute; /* 버튼을 absolute로 설정합니다. */
+  bottom: 0; /* 부모 요소 아래에 배치합니다. */
+  left: 0; /* 부모 요소 왼쪽에 배치합니다. */
+  display: flex;
+  padding: 10px; /* 조정이 필요한 경우 패딩을 조절하세요. */
+  opacity: 0; /* 기본적으로 투명하게 설정 */
   transition: 0.5s;
 }
 
-.portfolio-item:hover .portfolio-btn {
-  opacity: 1;
-  padding-bottom: 30px !important;
+.portfolio-overlay:hover {
+  background: var(--primary);
+}
+
+.portfolio-overlay:hover .portfolio-text,
+.portfolio-overlay:hover .portfolio-btn {
+  opacity: 1; /* 마우스를 올렸을 때 투명도를 1로 변경 */
 }
 
 /*** Team ***/
